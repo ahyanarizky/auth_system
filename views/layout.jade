@@ -1,8 +1,25 @@
 doctype html
 html
   head
-    title= title
+    title='Auth System'
     link(rel='stylesheet', href='/stylesheets/semantic.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+      h1.ui.header
+        | Auth System
+      .ui.menu
+        a.item(id='home-menu' role='button' method='GET' href='/')
+          | Home
+          i.home.icon
+        a.item(id='reg-menu' role='button' method='GET' href='/register')
+          | Register
+          i.write.square.icon
+        a.item(id='login-menu' role='button' method='GET' href='/login')
+          | Login
+          i.sign.in.icon
+        .right.menu
+      .ui.segment
+        block content
+  script(src="/javascripts/jquery.min.js")
+  script(src="/javascripts/semantic.min.js")
+  script(src="/javascripts/javascript.js")
