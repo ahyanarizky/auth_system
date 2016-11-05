@@ -16,6 +16,7 @@ const LocalStrategy = require('passport-local').Strategy
 const routes = require('./routes/index');
 const users = require('./routes/users');
 
+const ModelUser = require('./models/user');
 const app = express();
 // MONGODB AND MONGOOSE
 mongoose.Promise = global.Promise
