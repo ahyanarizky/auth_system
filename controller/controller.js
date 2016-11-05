@@ -30,7 +30,6 @@ module.exports = {
             })
         } else {
             if (req.body.password == req.body.confirmpassword) {
-                console.log(req.body);
                 User.register({
                     fullname: req.body.fullname,
                     username: req.body.username,
@@ -38,14 +37,16 @@ module.exports = {
                 }, req.body.password, function(err, result) {
                     if (err) {
                         console.log(err);
-                        console.log(result);
                         res.render('register', {alert: 'Registration Failed. Please Try again'})
                     } else {
                         passport.authenticate('local')(req, res, function() {
                             req.session.save(function(err, next) {
                                 if (err)
                                     return next(err)
-                                res.render('/', {title: 'Session Confirmed'})
+                                res.render('index', {
+                                    title: 'Auth System',
+                                    user: req.user
+                                })
                             })
                         })
                     }
