@@ -18,6 +18,10 @@ html
           | Login
           i.sign.in.icon
         .right.menu
+          -if(user)
+            a.item(id='login-menu' role='button' method='GET' href='/logout')
+              | Logout
+              i.sign.out.icon
       .ui.segment
         block content
   script(src="/javascripts/jquery.min.js")

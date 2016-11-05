@@ -1,13 +1,23 @@
 extends layout
 
 block content
-  h2.ui.center.aligned.icon.header
-    i.lock.icon
-    .content
-      | Content is Locked
-      .sub.header Please Register or Login to Unlock Content
-          br
-          .ui.buttons
-            a.ui.button(role='button' href='/register') Register
-            .or
-            a.ui.positive.button(role='button' href='/login') Login
+  -if(!user)
+    h2.ui.center.aligned.icon.header
+      i.lock.icon
+      .content
+        | Content is Locked
+        .sub.header Please Register or Login to Unlock Content
+            br
+            .ui.buttons
+              a.ui.teal.button(role='button' href='/register') Register
+              .or
+              a.ui.purple.button(role='button' href='/login') Login
+  -else
+    h2.ui.center.aligned.icon.header
+      i.unlock.alternate.icon
+      .content
+        | Congratulation ! Content is Unlocked
+        .sub.header You are viewing this page because YOU are in the SESSION
+      .ui.reg.segment
+        i.massive.hand.peace.icon
+        p NOW you're locked in this page and cannot go to other page unless you click the logout button

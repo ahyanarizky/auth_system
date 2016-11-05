@@ -18,4 +18,6 @@ block content
     .field
       label Confirm Password
       input(name='confirmpassword', placeholder='Confirm Password', type='password')
+      -if(alert)
+        .ui.pointing.red.basic.label #{alert}
     button.ui.inverted.blue.button(type='submit') Submit

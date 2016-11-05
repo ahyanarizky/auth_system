@@ -9,4 +9,6 @@ block content
     .field
       label Password
       input(name='password', placeholder='Password', type='password')
+      -if(alert)
+        .ui.pointing.red.basic.label #{alert}
     button.ui.inverted.purple.button(type='submit') Submit

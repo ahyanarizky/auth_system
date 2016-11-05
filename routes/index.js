@@ -1,54 +1,19 @@
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user')
+const express = require('express');
+const router = express.Router();
+const controller = require('../controller/controller');
+const passport = require('passport')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', {title: 'Auth System'});
-});
+router.get('/', controller.getHomePage);
 
-router.get('/register', function(req, res, next) {
-    res.render('register', {title: 'Auth System'});
-});
+router.get('/register', controller.registerForm);
 
-router.post('/register', function(req, res, next) {
-    if (req.body.password == req.body.confirmpassword) {
-        User.register({
-            fullname: req.body.fullname,
-            username: req.body.username,
-            email: req.body.email
-        }, req.body.password, function(err, result) {
-            if (err) {
-                console.log(err);
-                res.render('register', {alert: 'Registration Failed. Please Try again'})
-            } else {
-                passport.authenticate('local')(req, res, function() {
-                    req.session.save(function(err, next) {
-                        if (err)
-                            return next(err)
-                        res.redirect('/dashboard')
-                    })
-                })
-            }
-        })
+router.post('/register', controller.registerProcess);
 
-    } else {
-        res.render('register', {alert: 'Confirm Password not matched'})
-    }
-});
+router.get('/login', controller.loginForm);
 
-router.get('/login', function(req, res, next) {
-    res.render('login', {title: 'Auth System'});
-});
+router.post('/login', passport.authenticate('local'), controller.loginProcess);
 
-router.post('/login', function(req, res, next) {
-    req.session.save((err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.redirect('/login')
-        }
-    })
-});
+router.get('/logout', controller.logout)
 
 module.exports = router;
