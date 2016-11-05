@@ -10,6 +10,8 @@ router.get('/register', function(req, res, next) {
     res.render('register', {title: 'Auth System'});
 });
 
+router.post('/register', function(req, res, next) {});
+
 router.get('/login', function(req, res, next) {
     res.render('login', {title: 'Auth System'});
 });
