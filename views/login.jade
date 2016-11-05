@@ -4,13 +4,9 @@ block content
   h1.ui.header Login
   form.ui.form
     .field
-      label First Name
-      input(name='first-name', placeholder='First Name', type='text')
+      label Username
+      input(name='username', placeholder='Username', type='text')
     .field
-      label Last Name
-      input(name='last-name', placeholder='Last Name', type='text')
-    .field
-      .ui.checkbox
-        input.hidden(tabindex='0', type='checkbox')
-        label I agree to the Terms and Conditions
-    button.ui.button(type='submit') Submit
+      label Password
+      input(name='password', placeholder='Password', type='password')
+    button.ui.inverted.purple.button(type='submit') Submit

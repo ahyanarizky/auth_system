@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.ui.buttons:not(.basic):not(.inverted) {
+  box-shadow: none;
+  margin-top: 40px;
+}
