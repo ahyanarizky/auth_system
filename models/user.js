@@ -17,9 +17,12 @@ const User = new Schema({
         type: String,
         required: true,
         unique: true
+<<<<<<< d3d4dedc4a7630c5808adf11c0c0b5935351e4b8
     },
     password: {
         type: String
+=======
+>>>>>>> something wrong
     }
 })
 

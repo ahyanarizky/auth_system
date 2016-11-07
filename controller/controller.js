@@ -37,16 +37,24 @@ module.exports = {
                 }, req.body.password, function(err, result) {
                     if (err) {
                         console.log(err);
+<<<<<<< d3d4dedc4a7630c5808adf11c0c0b5935351e4b8
+=======
+                        console.log(result);
+>>>>>>> something wrong
                         res.render('register', {alert: 'Registration Failed. Please Try again'})
                     } else {
                         passport.authenticate('local')(req, res, function() {
                             req.session.save(function(err, next) {
                                 if (err)
                                     return next(err)
+<<<<<<< d3d4dedc4a7630c5808adf11c0c0b5935351e4b8
                                 res.render('index', {
                                     title: 'Auth System',
                                     user: req.user
                                 })
+=======
+                                res.render('/', {title: 'Session Confirmed'})
+>>>>>>> something wrong
                             })
                         })
                     }
